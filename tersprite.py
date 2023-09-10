@@ -44,7 +44,7 @@ def drawSprite(name):
     f.close()
     return temp
 
-def deconstruct(drawOutput, lenX, lenY, ignore=" "):
+def deconstruct(drawOutput, lenX, lenY, escape="\\"):
     i = 0
     temp = []
     while i != lenX:
@@ -61,9 +61,13 @@ def deconstruct(drawOutput, lenX, lenY, ignore=" "):
         x = drawOutput[i][1]
         y = drawOutput[i][0]
         char = drawOutput[i][2]
-        if char != ignore:
+        if char != " ":
             temp1 = list(temp[y])
             temp1[x] = char
+            temp[y] = "".join(temp1)
+        elif char == escape:
+            temp1 = list(temp[y])
+            temp1[x] = " "
             temp[y] = "".join(temp1)
         i += 1
     return temp
