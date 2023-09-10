@@ -44,16 +44,16 @@ def drawSprite(name):
     f.close()
     return temp
 
-def deconstruct(drawOutput, lenX, lenY):
+def deconstruct(drawOutput, lenX, lenY, ignore=" "):
     i = 0
     temp = []
-    while i != lenX + 1:
+    while i != lenX:
         temp.append(" ")
         i += 1
     temp1 = "".join(temp)
     temp = []
     i = 0
-    while i != lenY + 1:
+    while i != lenY:
         temp.append(temp1)
         i += 1
     i = 0
@@ -61,8 +61,9 @@ def deconstruct(drawOutput, lenX, lenY):
         x = drawOutput[i][1]
         y = drawOutput[i][0]
         char = drawOutput[i][2]
-        temp1 = list(temp[y])
-        temp1[x] = char
-        temp[y] = "".join(temp1)
+        if char != ignore:
+            temp1 = list(temp[y])
+            temp1[x] = char
+            temp[y] = "".join(temp1)
         i += 1
     return temp
