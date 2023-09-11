@@ -25,11 +25,11 @@ Create a folder called assets, and make a file called "sprite1.txt" in it. To re
 
 This will create an empty gird with the dimentions 80x80 charectors, and place all sprites on it. Then, it will print it to the console. Keep in mind that (due to a known bug), you will need an empty line with all spaces at the end of the "sprite1.txt" file. You also need trailing spaces on all other lines to match its dimentions. You can hide this sprite with the hide() function like this:
 
-`hide("sprite1)`
+`tersprite.hide("sprite1)`
 
 And show it again like this:
 
-`show("sprite1")`
+`tersprite.show("sprite1")`
 
 ## Changing defaults
 By default, tersprite saves all asset files to a folder called "assets", as we mentioned before. However, you can also change the asset folder to any folder you want using the assetLoc() function. Run the following:
