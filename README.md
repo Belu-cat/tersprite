@@ -17,13 +17,16 @@ To begin, import tersprite like this:
 Sprites are the main focus of this module. A sprite has three properties, its X pos, Y pos, and if it is hidden. Hidden sprites are not rendered. To start, create a sprite, for an example "sprite1" like this:
 
 `tersprite.sprite("sprite1", 5, 8)`
+
 This will make a sprite called "sprite1" and set its x and y locations to 5, 8.
 Create a folder called assets, and make a file called "sprite1.txt" in it. To render this sprite, run:
 
 `print(tersprite.render(80, 80))`
+
 This will create an empty gird with the dimentions 80x80 charectors, and place all sprites on it. Then, it will print it to the console. Keep in mind that (due to a known bug), you will need an empty line with all spaces at the end of the "sprite1.txt" file. You also need trailing spaces on all other lines to match its dimentions. You can hide this sprite with the hide() function like this:
 
 `hide("sprite1)`
+
 And show it again like this:
 
 `show("sprite1")`
