@@ -8,7 +8,8 @@ spriteList = ["default"]
 sprites["default"] = {
     "x": 0,
     "y": 0,
-    "asset": "best.txt"
+    "asset": "best.txt",
+    "show?": True
 }
 
 def assetLoc(dir):
@@ -18,13 +19,14 @@ def assetLoc(dir):
     else:
         assetLoc = dir
 
-def sprite(name = "", x = "", y = ""):
+def sprite(name = "", x = "", y = "", show=True):
     if x == "":
         return sprites[name]
     else:
         sprites[name] = {
         "x": x,
         "y": y,
+        "show?": show
     }
     sprites[name]["asset"] = name + ".txt"
     
@@ -96,6 +98,13 @@ def draw():
     global temp
     temp = []
     while i2 != len(spriteList) + 1:
-        temp1 = drawSprite(spriteList[i2 - 1])
+        if sprites[spriteList[i2 - 1]]["show?"]:
+            temp1 = drawSprite(spriteList[i2 - 1])
         i2 += 1
     return temp1
+
+def hide(name):
+    sprites[name]["show?"] = False
+
+def show(name):
+    sprites[name]["show?"] = True
