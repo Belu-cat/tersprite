@@ -1,5 +1,5 @@
 import os
-assetLoc = ""
+assetLoc = "assets"
 sprites = {
 }
 
@@ -123,5 +123,5 @@ def printDeconstructed(deconsructed):
        i += 1
     return totalToPrint
 
-def totalDraw(lenX, lenY):
+def render(lenX, lenY):
     return(printDeconstructed(deconstruct(draw(), lenX, lenY)))
