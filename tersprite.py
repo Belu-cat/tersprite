@@ -3,6 +3,8 @@ assetLoc = ""
 sprites = {
 }
 
+spriteList = ["default"]
+
 sprites["default"] = {
     "x": 0,
     "y": 0,
@@ -25,12 +27,15 @@ def sprite(name = "", x = "", y = ""):
         "y": y,
     }
     sprites[name]["asset"] = name + ".txt"
+    
+    if not name in spriteList:
+        spriteList.append(name)
 
 
 def spriteLoc(name):
     return [sprites[name]["x"], sprites[name]["y"]]
 
-def drawSprite(name):
+def drawSprite(name, clearTemp = False, globalTemp = True):
     global sprites
     f = open("assets/" + sprites[name]["asset"])
     sprite = f.read().split("\n")
@@ -38,7 +43,10 @@ def drawSprite(name):
     ofsetY = sprites[name]["y"]
     x = 0
     y = 0
-    temp = []
+    if globalTemp:
+        global temp
+    if clearTemp:
+        temp = []
     while y != len(sprite[0]) + 1:
         x = 0
         while x != len(sprite) + 1:
@@ -82,3 +90,12 @@ def deconstruct(drawOutput, lenX, lenY, escape="\\"):
 
 def spriteAsset(name, asset):
     sprites[name]["asset"] = asset
+
+def draw():
+    i2 = 0
+    global temp
+    temp = []
+    while i2 != len(spriteList) + 1:
+        temp1 = drawSprite(spriteList[i2 - 1])
+        i2 += 1
+    return temp1
