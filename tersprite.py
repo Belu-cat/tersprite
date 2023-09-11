@@ -114,3 +114,14 @@ def hide(name):
 
 def show(name):
     sprites[name]["show?"] = True
+
+def printDeconstructed(deconsructed):
+    i = 0
+    totalToPrint = ""
+    while i != len(deconsructed):
+       totalToPrint = totalToPrint + deconsructed[i] + "\n"
+       i += 1
+    return totalToPrint
+
+def totalDraw(lenX, lenY):
+    return(printDeconstructed(deconstruct(draw(), lenX, lenY)))
