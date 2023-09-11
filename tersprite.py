@@ -5,6 +5,10 @@ sprites = {
 
 spriteList = ["default"]
 
+switches = {
+    "inputEveryFrame?": False
+}
+
 sprites["default"] = {
     "x": 0,
     "y": 0,

@@ -1,1 +1,2 @@
 # tersprite
+WARNING! BAD CODE AHEAD
