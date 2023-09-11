@@ -50,17 +50,17 @@ def drawSprite(name, clearTemp = False, globalTemp = True):
     x = 0
     y = 0
     if globalTemp:
-        global temp
+        global output
     if clearTemp:
-        temp = []
+        output = []
     while y != len(sprite[0]) + 1:
         x = 0
         while x != len(sprite) + 1:
-            temp.append([x + ofsetX, y + ofsetY, sprite[x - 1][y - 1]])
+            output.append([x + ofsetX, y + ofsetY, sprite[x - 1][y - 1]])
             x += 1
         y += 1
     f.close()
-    return temp
+    return output
 
 def deconstruct(drawOutput, lenX, lenY, escape="\\"):
     if os.name == "nt":
@@ -68,15 +68,15 @@ def deconstruct(drawOutput, lenX, lenY, escape="\\"):
     elif os.name == "posix":
         os.system("clear")
     i = 0
-    temp = []
+    deconstruct = []
     while i != lenX:
-        temp.append(" ")
+        deconstruct.append(" ")
         i += 1
-    temp1 = "".join(temp)
-    temp = []
+    joinDeconstruct = "".join(deconstruct)
+    deconstruct = []
     i = 0
     while i != lenY:
-        temp.append(temp1)
+        deconstruct.append(joinDeconstruct)
         i += 1
     i = 0
     while i != len(drawOutput):
@@ -86,28 +86,28 @@ def deconstruct(drawOutput, lenX, lenY, escape="\\"):
         temp5 = char != " "
         temp6 = char != escape
         if  temp5 & temp6:
-            temp1 = list(temp[y])
-            temp1[x] = char
-            temp[y] = "".join(temp1)
+            joinDeconstruct = list(deconstruct[y])
+            joinDeconstruct[x] = char
+            deconstruct[y] = "".join(joinDeconstruct)
         elif char == escape:
-            temp1 = list(temp[y])
-            temp1[x] = " "
-            temp[y] = "".join(temp1)
+            joinDeconstruct = list(deconstruct[y])
+            joinDeconstruct[x] = " "
+            deconstruct[y] = "".join(joinDeconstruct)
         i += 1
-    return temp
+    return deconstruct
 
 def spriteAsset(name, asset):
     sprites[name]["asset"] = asset
 
 def draw():
     i2 = 0
-    global temp
-    temp = []
+    global output
+    output = []
     while i2 != len(spriteList) + 1:
         if sprites[spriteList[i2 - 1]]["show?"]:
-            temp1 = drawSprite(spriteList[i2 - 1])
+            combiniedOutput = drawSprite(spriteList[i2 - 1])
         i2 += 1
-    return temp1
+    return combiniedOutput
 
 def hide(name):
     sprites[name]["show?"] = False
