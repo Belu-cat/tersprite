@@ -79,7 +79,9 @@ def deconstruct(drawOutput, lenX, lenY, escape="\\"):
         x = drawOutput[i][1]
         y = drawOutput[i][0]
         char = drawOutput[i][2]
-        if char != " ":
+        temp5 = char != " "
+        temp6 = char != escape
+        if  temp5 & temp6:
             temp1 = list(temp[y])
             temp1[x] = char
             temp[y] = "".join(temp1)
